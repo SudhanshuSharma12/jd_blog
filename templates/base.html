@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+{% include "head.html" %}
+
+<body>
+
+    {% include 'header.html' %}
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% block content %}
+    {% endblock content %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+    {% include 'scripts.html' %}
+
+    {% block extra_scripts %}
+    {% endblock extra_scripts %}
+
+</body>
+
+</html>
